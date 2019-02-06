@@ -45,7 +45,6 @@ def handle_message(event):
 
     #リプライ部分の記述
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="以上。"))
 
 if __name__=="__main__":
     port=int(os.getenv("PORT",5000))
