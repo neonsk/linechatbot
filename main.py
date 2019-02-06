@@ -26,7 +26,8 @@ def callback():
 
 @handler.add(MessageEvent,message=TextMessage)
 def handle_message(event):
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="なおに会いたい"))#event.message.text))
+    reply_text = event.message.text
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text+"。でもなおに会いたいな"))
 
 if __name__=="__main__":
     port=int(os.getenv("PORT",5000))
