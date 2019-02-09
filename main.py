@@ -5,6 +5,7 @@ from linebot.models import MessageEvent,TextMessage,TextSendMessage
 import os
 import requests
 import pprint
+import pya3rt
 
 app=Flask(__name__)
 #環境変数の取得
@@ -31,7 +32,8 @@ def handle_message(event):
     #入力された文字列を格納
     push_text = event.message.text
 
-    #リプライする文字列
+    #天気APIにより応答
+    """
     if push_text == "天気":
         url = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
         api_data = requests.get(url).json()
@@ -42,6 +44,13 @@ def handle_message(event):
         reply_text = api_data["description"]["text"]
     else:
         reply_text = push_text
+    """
+    #A3RTのTalkAPIにより応答
+    if __name__ == '__main__':
+        apikey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
+        client = pya3rt.TalkClient(apikey)
+        response = client.talk(push_text)
+        reply_text = ((response['results'])[0])['reply']
 
     #リプライ部分の記述
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
