@@ -46,8 +46,8 @@ def handle_message(event):
         reply_text = push_text
     """
     #A3RTのTalkAPIにより応答
-    apikey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
-    client = pya3rt.TalkClient(apikey)
+    a3rtTalkApiKey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
+    client = pya3rt.TalkClient(a3rtTalkApiKey)
     response = client.talk(push_text)
     reply_text = ((response['results'])[0])['reply']
 
