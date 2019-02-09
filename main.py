@@ -46,11 +46,10 @@ def handle_message(event):
         reply_text = push_text
     """
     #A3RTのTalkAPIにより応答
-    if __name__ == '__main__':
-        apikey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
-        client = pya3rt.TalkClient(apikey)
-        response = client.talk(push_text)
-        reply_text = ((response['results'])[0])['reply']
+    apikey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
+    client = pya3rt.TalkClient(apikey)
+    response = client.talk(push_text)
+    reply_text = ((response['results'])[0])['reply']
 
     #リプライ部分の記述
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
