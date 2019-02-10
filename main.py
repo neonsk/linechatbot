@@ -9,7 +9,7 @@ import pya3rt
 
 app=Flask(__name__)
 #環境変数の取得
-YOUR_CHANNEL_ACCESS_TOKEN="I3b9vUudKz15p7HrL4p/sWYdAUXY4gumr8WM+FGZq62vG84OFdSdfr00K94xvuybrheywXkdf+uvPNrGUYQIRfnAzcpWW53hYlatwBWwhd9b5ryUP7cf4OYYDXzra6Jl/geCFvRarChtKuyqVZgavwdB04t89/1O/w1cDnyilFU="
+YOUR_CHANNEL_ACCESS_TOKEN="+1wc60N4p4u3ZAR26GRHfK/B+scc4cp4QPxQhV2dWe3ngWTDaj7lq9BZtvH8tPCbrheywXkdf+uvPNrGUYQIRfnAzcpWW53hYlatwBWwhd/gAxzGo2NspesMQFTb8V5buWvAResxWYCLAZPq+vpBJgdB04t89/1O/w1cDnyilFU="
 YOUR_CHANNEL_SECRET="3474fdbe051be518b0d716f4f4c936be"
 line_bot_api=LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler=WebhookHandler(YOUR_CHANNEL_SECRET)
