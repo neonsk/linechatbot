@@ -33,10 +33,10 @@ def handle_message(event):
     push_text = event.message.text
 
     #天気APIにより応答
-    reply_text = weatherapi_response(push_text)
+    #reply_text = weatherapi_response(push_text)
     
     #A3RTのTalkAPIにより応答
-    #reply_text = talkapi_response(push_text)
+    reply_text = talkapi_response(push_text)
 
     #リプライ部分の記述
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
@@ -56,13 +56,12 @@ def weatherapi_response(push_text):
         return push_text
 
 #A3RTのTalkAPIにより応答
-"""
 def talkapi_response(text):
     apikey = "DZZTN8HTduABGoAd8GPaM3QCvapddGU7"
     client = pya3rt.TalkClient(apikey)
     response = client.talk(text)
     return ((response['results'])[0])['reply']
-"""
+
 if __name__=="__main__":
     port=int(os.getenv("PORT",5000))
     app.run(host="0.0.0.0",port=port)
