@@ -32,12 +32,14 @@ def handle_message(event):
     #入力された文字列を格納
     push_text = event.message.text
 
+    #=========返答タイプの設定==========================
     #天気APIにより応答
     #reply_text = weatherapi_response(push_text)
     
     #A3RTのTalkAPIにより応答
     reply_text = talkapi_response(push_text)
-
+    #===================================
+    
     #リプライ部分の記述
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
 
