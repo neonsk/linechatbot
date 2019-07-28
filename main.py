@@ -6,6 +6,7 @@ import os
 import requests
 import pprint
 import pya3rt
+import scraper_ainow
 
 app=Flask(__name__)
 #環境変数の取得
@@ -37,11 +38,17 @@ def handle_message(event):
     #reply_text = weatherapi_response(push_text)
     
     #A3RTのTalkAPIにより応答
-    reply_text = talkapi_response(push_text)
+    # reply_text = talkapi_response(push_text)
+
+    # 記事を取得し返答
+    scraping = scraper_ainow.ScrapingAinow()
+    article_urls, article_titles = scraping.execute
     #===================================
     
     #リプライ部分の記述
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=reply_text))
+    for num in article_urls:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=article_titles[0]))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=article_urls[0]))
 
 
 #天気APIにより応答
